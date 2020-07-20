@@ -191,6 +191,7 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookDetailDTO.cs" />
     <Compile Include="Models\BookDto.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,6 +226,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Properties\PublishProfiles\BookService20200718211433 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\BookService20200718211433 - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
