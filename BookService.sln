@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookService", "BookService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{D847BA84-2007-4693-A388-92B9C7BD053F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem_SE1405", "SchoolManagementSystem_SE1405\SchoolManagementSystem_SE1405.csproj", "{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D847BA84-2007-4693-A388-92B9C7BD053F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D847BA84-2007-4693-A388-92B9C7BD053F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D847BA84-2007-4693-A388-92B9C7BD053F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

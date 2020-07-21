@@ -25,5 +25,7 @@ namespace BookService.Data
         public System.Data.Entity.DbSet<BookService.Models.Book> Books { get; set; }
 
         public System.Data.Entity.DbSet<BookService.Models.Course> Courses { get; set; }
+
+        public System.Data.Entity.DbSet<BookService.Models.User> Users { get; set; }
     }
 }

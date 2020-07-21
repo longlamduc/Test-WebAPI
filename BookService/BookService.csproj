@@ -166,6 +166,7 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\BookServiceContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,13 +187,21 @@
     <Compile Include="Migrations\202007191445588_initial3.designer.cs">
       <DependentUpon>202007191445588_initial3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007201500046_initial4.cs" />
+    <Compile Include="Migrations\202007201500046_initial4.designer.cs">
+      <DependentUpon>202007201500046_initial4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007201502159_initial5.cs" />
+    <Compile Include="Migrations\202007201502159_initial5.designer.cs">
+      <DependentUpon>202007201502159_initial5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookDetailDTO.cs" />
     <Compile Include="Models\BookDto.cs" />
-    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +301,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007191445588_initial3.resx">
       <DependentUpon>202007191445588_initial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007201500046_initial4.resx">
+      <DependentUpon>202007201500046_initial4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007201502159_initial5.resx">
+      <DependentUpon>202007201502159_initial5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

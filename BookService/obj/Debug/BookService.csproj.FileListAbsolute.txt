@@ -186,3 +186,5 @@ C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\BookService\obj\Debug\Book
 C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\BookService\obj\Debug\BookService.csproj.CopyComplete
 C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\BookService\obj\Debug\BookService.dll
 C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\BookService\obj\Debug\BookService.pdb
+C:\Users\ASUS TUF\source\repos\longlamduc\Test-WebAPI\BookService\obj\Debug\BookService.Migrations.initial4.resources
+C:\Users\ASUS TUF\source\repos\longlamduc\Test-WebAPI\BookService\obj\Debug\BookService.Migrations.initial5.resources
