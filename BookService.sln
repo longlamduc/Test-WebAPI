@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem_SE1405", "SchoolManagementSystem_SE1405\SchoolManagementSystem_SE1405.csproj", "{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleApp", "..\..\SaleApp\SaleApp\SaleApp.csproj", "{009DE96E-4416-4762-9942-9D859A4E1253}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD9EE80-0578-44EB-9651-3FB0CA6E1C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009DE96E-4416-4762-9942-9D859A4E1253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009DE96E-4416-4762-9942-9D859A4E1253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009DE96E-4416-4762-9942-9D859A4E1253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009DE96E-4416-4762-9942-9D859A4E1253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

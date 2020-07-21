@@ -61,3 +61,4 @@ C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\SchoolManagementSystem_SE1
 C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\SchoolManagementSystem_SE1405\bin\EntityFramework.SqlServer.xml
 C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\SchoolManagementSystem_SE1405.Migrations.initial.resources
 C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\SchoolManagementSystem_SE1405.csproj.GenerateResource.cache
+C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\SchoolManagementSystem_SE1405.Migrations.initial1.resources
