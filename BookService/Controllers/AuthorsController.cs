@@ -21,7 +21,7 @@ namespace BookService.Controllers
         // GET: api/Authors
         public IQueryable<Author> GetAuthors()
         {
-            return db.Authors;
+            return db.Authors.Include(b => b.Books);
         }
 
         // GET: api/Authors/5

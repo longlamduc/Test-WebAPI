@@ -15,15 +15,9 @@ namespace SchoolManagementSystem_SE1405.Data
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<ClassDetail>().HasKey(l => new { l.AccountId, l.ClassId });
-        }
-
         public SchoolManagementSystem_SE1405Context() : base("name=SchoolManagementSystem_SE1405Context")
         {
+            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.Role> Roles { get; set; }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using BookService.Models;
 
 namespace BookService.Data
 {
@@ -18,6 +19,13 @@ namespace BookService.Data
         public BookServiceContext() : base("name=BookServiceContext")
         {
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Author>().HasMany(b => b.Books).WithRequired(c => c.Author);
         }
 
         public System.Data.Entity.DbSet<BookService.Models.Author> Authors { get; set; }

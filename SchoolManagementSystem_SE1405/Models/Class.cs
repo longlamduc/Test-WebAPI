@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SchoolManagementSystem_SE1405.Models;
 
 namespace SchoolManagementSystem_SE1405.Models
 {
@@ -16,5 +17,6 @@ namespace SchoolManagementSystem_SE1405.Models
         public Account Account { get; set; }
         public int StatusId { get; set; }
         public Status Status { get; set; }
+        public ICollection<ClassDetail> ClassDetails { get; set; }
     }
 }

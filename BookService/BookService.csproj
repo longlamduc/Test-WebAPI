@@ -171,29 +171,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007181438021_initial.cs" />
-    <Compile Include="Migrations\202007181438021_initial.designer.cs">
-      <DependentUpon>202007181438021_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007191400256_initial1.cs" />
-    <Compile Include="Migrations\202007191400256_initial1.designer.cs">
-      <DependentUpon>202007191400256_initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007191433353_initial2.cs" />
-    <Compile Include="Migrations\202007191433353_initial2.designer.cs">
-      <DependentUpon>202007191433353_initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007191445588_initial3.cs" />
-    <Compile Include="Migrations\202007191445588_initial3.designer.cs">
-      <DependentUpon>202007191445588_initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007201500046_initial4.cs" />
-    <Compile Include="Migrations\202007201500046_initial4.designer.cs">
-      <DependentUpon>202007201500046_initial4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007201502159_initial5.cs" />
-    <Compile Include="Migrations\202007201502159_initial5.designer.cs">
-      <DependentUpon>202007201502159_initial5.cs</DependentUpon>
+    <Compile Include="Migrations\202007211142097_initial.cs" />
+    <Compile Include="Migrations\202007211142097_initial.designer.cs">
+      <DependentUpon>202007211142097_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
@@ -290,23 +270,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007181438021_initial.resx">
-      <DependentUpon>202007181438021_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007191400256_initial1.resx">
-      <DependentUpon>202007191400256_initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007191433353_initial2.resx">
-      <DependentUpon>202007191433353_initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007191445588_initial3.resx">
-      <DependentUpon>202007191445588_initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007201500046_initial4.resx">
-      <DependentUpon>202007201500046_initial4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007201502159_initial5.resx">
-      <DependentUpon>202007201502159_initial5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007211142097_initial.resx">
+      <DependentUpon>202007211142097_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

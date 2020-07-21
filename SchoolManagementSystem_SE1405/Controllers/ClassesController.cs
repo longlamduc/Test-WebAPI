@@ -21,7 +21,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
         // GET: api/Classes
         public IQueryable<Class> GetClasses()
         {
-            return db.Classes;
+            return db.Classes.Include(b => b.ClassDetails);
         }
 
         // GET: api/Classes/5

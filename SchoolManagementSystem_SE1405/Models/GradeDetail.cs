@@ -9,12 +9,9 @@ namespace SchoolManagementSystem_SE1405.Models
 {
     public class GradeDetail
     {
-        [Key]
-        [Column(Order = 1)]
+        public int Id { get; set; }
         public string GradeId { get; set; }
         public Grade Grade { get; set; }
-        [Key]
-        [Column(Order = 2)]
         public string AccountId { get; set; }
         public Account Account { get; set; }
         public float GradeValue { get; set; }

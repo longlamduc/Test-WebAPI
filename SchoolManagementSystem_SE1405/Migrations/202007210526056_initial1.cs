@@ -1,4 +1,4 @@
-namespace SchoolManagementSystem_SE1405.Migrations
+amespace SchoolManagementSystem_SE1405.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

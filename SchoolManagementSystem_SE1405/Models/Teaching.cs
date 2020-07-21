@@ -8,12 +8,11 @@ using System.Web;
 namespace SchoolManagementSystem_SE1405.Models
 {
     public class Teaching
-    {   [Key]
-        [Column(Order = 1)]
+    {
+        public int Id { get; set; }
         public string AccountId { get; set; }
         public Account Account { get; set; }
-        [Key]
-        [Column(Order = 2)]
+        
         public string CourseId { get; set; }
         public Course Course { get; set; }
     }
