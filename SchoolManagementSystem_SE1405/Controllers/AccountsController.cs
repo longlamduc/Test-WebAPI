@@ -21,7 +21,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
         // GET: api/Accounts
         public IQueryable<Account> GetAccounts()
         {
-            return db.Accounts;
+            return db.Accounts.Include(b => b.Role).Include(b=>b.Status);
         }
 
         // GET: api/Accounts/5
@@ -82,6 +82,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
             }
 
             db.Accounts.Add(account);
+            db.AccountInfoes.Add(account.AccountInfo);
 
             try
             {
