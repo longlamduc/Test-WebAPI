@@ -37,6 +37,8 @@ namespace SchoolManagementSystem_SE1405.Controllers
             return Ok(@class);
         }
 
+
+
         // PUT: api/Classes/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutClass(string id, Class @class)
@@ -71,6 +73,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+
 
         // POST: api/Classes
         [ResponseType(typeof(Class))]

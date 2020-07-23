@@ -37,6 +37,25 @@ namespace SchoolManagementSystem_SE1405.Controllers
             return Ok(course);
         }
 
+        [HttpPut]
+        [Route("api/courses/{id}/deactivate")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> DeactivateAccount(String id)
+        {
+            var course = await db.Courses.FindAsync(id);
+
+            if (course != null)
+            {
+                course.StatusId = 2;
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                return NotFound();
+            }
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
         // PUT: api/Courses/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutCourse(string id, Course course)

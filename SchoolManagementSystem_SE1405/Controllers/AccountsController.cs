@@ -21,7 +21,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
         // GET: api/Accounts
         public IQueryable<Account> GetAccounts()
         {
-            return db.Accounts.Include(b => b.Role).Include(b=>b.Status);
+            return db.Accounts.Include(b => b.Role).Include(b=>b.Status).Include(b => b.AccountInfo);
         }
 
         // GET: api/Accounts/5
@@ -35,6 +35,25 @@ namespace SchoolManagementSystem_SE1405.Controllers
             }
 
             return Ok(account);
+        }
+
+        [HttpPut]
+        [Route("api/accounts/{id}/deactivate")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> DeactivateAccount(String id)
+        {
+            var account = await db.Accounts.FindAsync(id);
+
+            if (account != null)
+            {
+                account.StatusId = 2;
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                return NotFound();
+            }
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // PUT: api/Accounts/5
