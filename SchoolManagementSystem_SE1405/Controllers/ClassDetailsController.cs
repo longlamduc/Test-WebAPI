@@ -26,7 +26,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
 
         // GET: api/ClassDetails/5
         [ResponseType(typeof(ClassDetail))]
-        public async Task<IHttpActionResult> GetClassDetail(string id)
+        public async Task<IHttpActionResult> GetClassDetail(int id)
         {
             ClassDetail classDetail = await db.ClassDetails.FindAsync(id);
             if (classDetail == null)
@@ -39,14 +39,14 @@ namespace SchoolManagementSystem_SE1405.Controllers
 
         // PUT: api/ClassDetails/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutClassDetail(string id, ClassDetail classDetail)
+        public async Task<IHttpActionResult> PutClassDetail(int id, ClassDetail classDetail)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != classDetail.AccountId)
+            if (id != classDetail.Id)
             {
                 return BadRequest();
             }
@@ -82,29 +82,14 @@ namespace SchoolManagementSystem_SE1405.Controllers
             }
 
             db.ClassDetails.Add(classDetail);
+            await db.SaveChangesAsync();
 
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ClassDetailExists(classDetail.AccountId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = classDetail.AccountId }, classDetail);
+            return CreatedAtRoute("DefaultApi", new { id = classDetail.Id }, classDetail);
         }
 
         // DELETE: api/ClassDetails/5
         [ResponseType(typeof(ClassDetail))]
-        public async Task<IHttpActionResult> DeleteClassDetail(string id)
+        public async Task<IHttpActionResult> DeleteClassDetail(int id)
         {
             ClassDetail classDetail = await db.ClassDetails.FindAsync(id);
             if (classDetail == null)
@@ -127,9 +112,9 @@ namespace SchoolManagementSystem_SE1405.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ClassDetailExists(string id)
+        private bool ClassDetailExists(int id)
         {
-            return db.ClassDetails.Count(e => e.AccountId == id) > 0;
+            return db.ClassDetails.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace SchoolManagementSystem_SE1405.Models
         public string Id { get; set; }
         public float Duration { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime EndDate { get; set; }
         public string CourseId { get; set; }
         public Course Course { get; set; }
         public string AccountId { get; set; }

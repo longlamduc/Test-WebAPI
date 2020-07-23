@@ -227,6 +227,10 @@
     <Compile Include="Migrations\202007230352217_initial1.designer.cs">
       <DependentUpon>202007230352217_initial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007230523577_initial2.cs" />
+    <Compile Include="Migrations\202007230523577_initial2.designer.cs">
+      <DependentUpon>202007230523577_initial2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountInfo.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007230352217_initial1.resx">
       <DependentUpon>202007230352217_initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007230523577_initial2.resx">
+      <DependentUpon>202007230523577_initial2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

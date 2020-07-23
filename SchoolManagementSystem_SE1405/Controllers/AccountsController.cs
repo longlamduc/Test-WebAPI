@@ -25,14 +25,19 @@ namespace SchoolManagementSystem_SE1405.Controllers
         }
 
         // GET: api/Accounts/5
+        [Route("api/accounts/login")]
         [ResponseType(typeof(Account))]
-        public async Task<IHttpActionResult> GetAccount(string id)
+        public async Task<IHttpActionResult> GetAccount(Account user)
         {
-            Account account = await db.Accounts.FindAsync(id);
-            if (account == null)
+            Account account = await db.Accounts.Include(a => a.Status).Include(a => a.Role)
+                .Include(a => a.AccountInfo)
+                .FirstOrDefaultAsync(a => a.Id == user.Id && a.Password == user.Password);
+            if (account == null || account.Status.StatusName == "DEACTIVE")
             {
                 return NotFound();
             }
+
+            account.Password = null;
 
             return Ok(account);
         }
@@ -71,6 +76,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
             }
 
             db.Entry(account).State = EntityState.Modified;
+            db.Entry(account.AccountInfo).State = EntityState.Modified;
 
             try
             {

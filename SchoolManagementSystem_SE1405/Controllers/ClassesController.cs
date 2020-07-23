@@ -24,6 +24,12 @@ namespace SchoolManagementSystem_SE1405.Controllers
             return db.Classes.Include(b => b.ClassDetails);
         }
 
+        [Route("api/courses/{courseId}/classes")]
+        public IQueryable<Class> GetClassesByCourseId(string courseId)
+        {
+            return db.Classes.Where(c => c.CourseId == courseId && c.StartDate > DateTime.Today);
+        }
+
         // GET: api/Classes/5
         [ResponseType(typeof(Class))]
         public async Task<IHttpActionResult> GetClass(string id)
@@ -36,8 +42,6 @@ namespace SchoolManagementSystem_SE1405.Controllers
 
             return Ok(@class);
         }
-
-
 
         // PUT: api/Classes/5
         [ResponseType(typeof(void))]
@@ -114,6 +118,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
             {
                 return NotFound();
             }
+            db.ClassDetails.Remove(db.ClassDetails.Single(d => d.ClassId == id));
 
             db.Classes.Remove(@class);
             await db.SaveChangesAsync();

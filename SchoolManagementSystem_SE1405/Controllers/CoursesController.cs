@@ -24,6 +24,12 @@ namespace SchoolManagementSystem_SE1405.Controllers
             return db.Courses;
         }
 
+        [Route("api/courses/semester/{semester}")]
+        public IQueryable<Course> GetCoursesBySemester(int semester)
+        {
+            return db.Courses.Where(c => c.Semester == semester);
+        }
+
         // GET: api/Courses/5
         [ResponseType(typeof(Course))]
         public async Task<IHttpActionResult> GetCourse(string id)
