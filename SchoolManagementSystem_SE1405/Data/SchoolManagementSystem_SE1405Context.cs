@@ -28,8 +28,6 @@ namespace SchoolManagementSystem_SE1405.Data
 
         public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.AccountInfo> AccountInfoes { get; set; }
 
-        public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.Attendance> Attendances { get; set; }
-
         public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.Class> Classes { get; set; }
 
         public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.Course> Courses { get; set; }
@@ -43,7 +41,5 @@ namespace SchoolManagementSystem_SE1405.Data
         public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.Student> Students { get; set; }
 
         public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.Teaching> Teachings { get; set; }
-
-        public System.Data.Entity.DbSet<SchoolManagementSystem_SE1405.Models.TimeTable> TimeTables { get; set; }
     }
 }

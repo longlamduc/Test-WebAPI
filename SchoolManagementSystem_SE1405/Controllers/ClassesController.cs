@@ -83,7 +83,7 @@ namespace SchoolManagementSystem_SE1405.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            
             db.Classes.Add(@class);
 
             try
