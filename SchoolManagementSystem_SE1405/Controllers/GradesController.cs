@@ -81,7 +81,17 @@ namespace SchoolManagementSystem_SE1405.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Grades.Add(grade);
+            Class classItem = db.Classes.FirstOrDefault(c => c.Id == grade.ClassId);
+
+            if (classItem != null)
+            {
+                return BadRequest(ModelState);
+            }
+            else if (classItem.StartDate > DateTime.Today ||
+                classItem.EndDate < DateTime.Today)
+            {
+                return BadRequest(ModelState);
+            }
 
             try
             {
