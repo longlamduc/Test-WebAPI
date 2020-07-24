@@ -1,42 +1,50 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SchoolManagementSystem_SE1405._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .col-md-4{
+             margin-bottom: 1.5rem;
+             text-align: center;
+        }
+        .col-md-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+    }
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
+        .img{
+            width:100px;
+            height:100px;
+            border-radius:100%;
+        }
+    </style>
+    <div style="margin-left:20px;"><h1><label id="txtWelcome">Welcome, <% %></label></h1></div>
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <img class="img" src="Img/currentclass.png" />
+            <h2>View Current Class</h2>
+            <p></p>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+                <a class="btn btn-default">Explore &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
+            <img class="img" src="Img/registercourse.png" />
+            <h2>Register Course</h2>
+            <p></p>
             <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default">Explore &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <img class="img" src="Img/viewgrade.png" />
+            <h2>View Grade</h2>
+            <p> </p>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default">Explore &raquo;</a>
             </p>
         </div>
     </div>
+    <div class="row">
+        </div>
 
 </asp:Content>

@@ -127,3 +127,4 @@ C:\Users\longl\source\repos\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\
 C:\Users\longl\source\repos\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\SchoolManagementSystem_SE1405.pdb
 C:\Users\longl\source\repos\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\SchoolManagementSystem_SE1405.Migrations.initial1.resources
 C:\Users\longl\source\repos\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\SchoolManagementSystem_SE1405.Migrations.initial2.resources
+C:\Users\ASUS TUF\Source\Repos\longlamduc\Test-WebAPI\SchoolManagementSystem_SE1405\obj\Debug\SchoolManagementSystem_SE1405.Migrations.initial2.resources

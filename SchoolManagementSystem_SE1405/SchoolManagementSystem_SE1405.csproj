@@ -132,6 +132,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CSS\Style.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -145,6 +146,11 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Img\currentclass.png" />
+    <Content Include="Img\fc047347b17f7df7ff288d78c8c281cf.png" />
+    <Content Include="Img\registercourse.png" />
+    <Content Include="Img\viewgrade.png" />
+    <Content Include="Manager.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -218,6 +224,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.aspx.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager.aspx.designer.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202007210409516_initial.cs" />
     <Compile Include="Migrations\202007210409516_initial.Designer.cs">
