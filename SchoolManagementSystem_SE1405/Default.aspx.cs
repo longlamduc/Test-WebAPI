@@ -15,7 +15,7 @@ using SchoolManagementSystem_SE1405.Models;
 
 namespace SchoolManagementSystem_SE1405
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
         async void GetAccountDetail()
         {
