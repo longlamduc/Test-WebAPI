@@ -86,7 +86,7 @@
                             <input type="number" step="any" class="form-control" id="txtStatusID" data-bind="value:Price" />
                         </div>
                     </div>
-                    <asp:Button style="float:right;" ID="btnSubmit  " runat="server" Text="Save" />
+                    <asp:Button style="float:right;" ID="btnSubmit" runat="server" Text="Save" />
                 </aside>
             </div>
         </div>

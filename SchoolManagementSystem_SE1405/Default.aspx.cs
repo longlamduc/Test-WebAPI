@@ -11,7 +11,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using SchoolManagementSystem_SE1405;
 using System.Text;
-using SchoolManagementSystem_SE1405.Models;
 
 namespace SchoolManagementSystem_SE1405
 {
