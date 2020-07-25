@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-header">
-    <h1>BookService</h1>
+    <h1>Course Manager</h1>
 </div>
 
 <div class="row">
@@ -21,6 +21,7 @@
                         <small><a href="#" data-bind="click: $parent.getBookDetail">Delete</a></small>
                     </li>
                 </ul>
+                <a style="float:right;" href="#" data-bind="click: $parent.getBookDetail">Add</a>
             </div>
         </div>
     </div>
@@ -31,53 +32,61 @@
                 <h2 class="panel-title">Detail</h2>
             </div>
             <table class="table">
-                <tr><td>Author</td><td data-bind="text: detail().AuthorName"></td></tr>
-                <tr><td>Title</td><td data-bind="text: detail().Title"></td></tr>
-                <tr><td>Year</td><td data-bind="text: detail().Year"></td></tr>
-                <tr><td>Genre</td><td data-bind="text: detail().Genre"></td></tr>
-                <tr><td>Price</td><td data-bind="text: detail().Price"></td></tr>
+                <tr><td>Course ID</td><td data-bind="text: detail().AuthorName"></td></tr>
+                <tr><td>Course Name</td><td data-bind="text: detail().Title"></td></tr>
+                <tr><td>Description</td><td data-bind="text: detail().Year"></td></tr>
+                <tr><td>Semester</td><td data-bind="text: detail().Genre"></td></tr>
+                <tr><td>Total Lesson</td><td data-bind="text: detail().Price"></td></tr>
+                <tr><td>Total Credit</td><td data-bind="text: detail().Price"></td></tr>
+                <tr><td>Status</td><td data-bind="text: detail().Price"></td></tr>
             </table>
         </div>
     </div>
     <!-- /ko -->
-
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h2 class="panel-title">Add Book</h2>
+                <asp:Label ID="lblTitleName" runat="server" Text="Label" Font-Size="Large"></asp:Label>
             </div>
 
             <div class="panel-body">
                 <aside class="form-horizontal" data-bind="submit: addBook">
-                    <div class="form-group">
-                        <label for="inputAuthor" class="col-sm-2 control-label">Author</label>
-                        <div class="col-sm-10">
-                            <select data-bind="options:authors, optionsText: 'Name', value: newBook.Author"></select>
-                        </div>
-                    </div>
+                    
 
                     <div class="form-group" data-bind="with: newBook">
-                        <label for="inputTitle" class="col-sm-2 control-label">Title</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputTitle" data-bind="value:Title" />
+                        <label style="text-align:start;" for="inputTitle" class="col-sm-4 control-label">Course Id</label>
+                        <div class="col-sm-8">
+                            <input  type="text" class="form-control" id="txtCourseID" data-bind="value:Title" />
                         </div>
 
-                        <label for="inputYear" class="col-sm-2 control-label">Year</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" id="inputYear" data-bind="value:Year" />
+                        <label style="text-align:start;" for="inputYear" class="col-sm-4 control-label">Course Name</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="txtCourseName" data-bind="value:Year" />
                         </div>
 
-                        <label for="inputGenre" class="col-sm-2 control-label">Genre</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputGenre" data-bind="value:Genre" />
+                        <label style="text-align:start;" for="inputGenre" class="col-sm-4 control-label">Description</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="txtDescription" data-bind="value:Genre" />
                         </div>
 
-                        <label for="inputPrice" class="col-sm-2 control-label">Price</label>
-                        <div class="col-sm-10">
-                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:Price" />
+                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Semester</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="txtSemester" data-bind="value:Price" />
+                        </div>
+                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Lesson</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="txtTotalLesson" data-bind="value:Price" />
+                        </div>
+                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Credit</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="txtTotalCredit" data-bind="value:Price" />
+                        </div>
+                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Status ID</label>
+                        <div class="col-sm-8">
+                            <input type="number" step="any" class="form-control" id="txtStatusID" data-bind="value:Price" />
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <asp:Button style="float:right;" ID="btnSubmit  " runat="server" Text="Save" />
                 </aside>
             </div>
         </div>
