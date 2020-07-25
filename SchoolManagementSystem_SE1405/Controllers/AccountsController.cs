@@ -27,11 +27,11 @@ namespace SchoolManagementSystem_SE1405.Controllers
         // GET: api/Accounts/5
         [Route("api/accounts/login")]
         [ResponseType(typeof(Account))]
-        public async Task<IHttpActionResult> GetAccount(Account user)
+        public async Task<IHttpActionResult> GetAccount(string Id, string Password)
         {
             Account account = await db.Accounts.Include(a => a.Status).Include(a => a.Role)
                 .Include(a => a.AccountInfo)
-                .FirstOrDefaultAsync(a => a.Id == user.Id && a.Password == user.Password);
+                .FirstOrDefaultAsync(a => a.Id == Id && a.Password == Password);
             if (account == null || account.Status.StatusName == "DEACTIVE")
             {
                 return NotFound();
