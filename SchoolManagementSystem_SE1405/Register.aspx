@@ -13,7 +13,7 @@
 	<form id="form1" runat="server" style="border:groove; margin:100px 500px 100px 500px; background: linear-gradient(to top, rgb(27, 163, 104,0), rgb(27, 163, 104,1));">
         
    
-	<h1 style="text-align:center; border:ridge;  background: linear-gradient(to bottom,  rgb(13, 43, 17,0), rgb(13, 43, 17,1)); color:white; margin-left:180px;margin-right:180px;"><b>Register</b></h1>
+	<h1 style="text-align:center; border:ridge;  background: linear-gradient(to bottom,  rgb(13, 43, 17,0), rgb(13, 43, 17,1)); color:white; margin-left:180px;margin-right:180px;"><b>Test</b></h1>
 	<div class="row">
 	<div class="col-md-2"></div>
 	
