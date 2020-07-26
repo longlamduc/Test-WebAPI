@@ -3,32 +3,31 @@
 <asp:Content ID="PageHeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <script src="Scripts/jquery-3.4.1.js"></script>
     <script type="text/javascript">
-        function getAllCourses() {
-            $.getJSON("api/courses", function (data) {
-                $('#listCourse').empty();
+        function getAllClasses() {
+            $.getJSON("api/classes", function (data) {
+                $('#listClass').empty();
                 $.each(data, function (key, value) {
-                    var item = $('#courseItem').clone();
+                    var item = $('#classItem').clone();
                     item.show();
-
-                    item.find("#courseInfo").text(value.Id + " - " + value.CourseName);
+                    console.log(value);
+                    item.find("#classInfo").text(value.Id + " - " + value.CourseId);
                     item.find("#detailLink").on('click', function () {
-                        showCourseDetail(value);
+                        showClassDetail(value);
                     });
 
                     item.find('#editLink').on('click', function () {
-                        showCourseDetail(value);
-                        $('#lblAction').text('Edit course');
-                        $('#txtCourseID').attr('disabled', 'disabled');
-                        $('#txtCourseID').val(value.Id);
-                        $('#txtCourseName').val(value.CourseName);
-                        $('#txtDescription').val(value.Description);
-                        $('#txtSemester').val(value.Semester);
-                        $('#txtTotalLesson').val(value.TotalLesson);
-                        $('#txtTotalCredit').val(value.TotalCredit);
+                        showClassDetail(value);
+                        $('#lblAction').text('Edit class');
+                        $('#txtClassID').attr('disabled', 'disabled');
+                        $('#txtDuration').val(value.Duration);
+                        $('#txtStartDate').val(value.StartDate);
+                        $('#txtEndDate').val(value.EndDate);
+                        $('#lstCourse').val(value.CourseId);
+                        $('#txtFullName').val(value.Account.FullName);
                         $('#lstStatus').val(value.StatusId);
                     });
 
-                    $('#listCourse').append(item);
+                    $('#listClass').append(item);
                 });
             })
         }
@@ -43,15 +42,26 @@
                 });
             });
         }
+        function getAllCourses() {
+            $.getJSON("api/courses", function (data) {
+                $.each(data, function (key, value) {
+                    console.log(value);
+                    var item = $('#optionItem').clone();
+                    item.val(value.Id);
+                    item.text(value.CourseName);
+                    $('#lstCourse').append(item);
+                });
+            });
+        }
 
-        function showCourseDetail(course) {
-            $('#courseID').text(course.Id);
-            $('#courseName').text(course.CourseName);
-            $('#description').text(course.Description);
-            $('#totalLesson').text(course.TotalLesson);
-            $('#semester').text(course.Semester);
-            $('#totalCredit').text(course.TotalCredit);
-            $('#status').text(course.Status.StatusName);
+        function showClassDetail(item) {
+            $('#classID').text(item.Id);
+            $('#duration').text(item.Duration);
+            $('#startDate').text(item.StartDate);
+            $('#endDate').text(item.EndDate);
+            $('#courseName').text(item.CourseId);
+            $('#fullName').text(item.Account.AccountId);
+            $('#status').text(item.Status.StatusName);
         }
 
         function validateForm() {
@@ -91,26 +101,27 @@
         }
 
         $(document).ready(function () {
-            getAllCourses();
+            getAllClasses();
             getAllStatus();
+            getAllCourses();
             $('form').attr('method', 'POST');
-            $('form').attr('action', 'api/courses');
+            $('form').attr('action', 'api/classes');
 
             $('#btnAdd').on('click', function () {
-                $('#lblAction').text('Add course');
+                $('#lblAction').text('Add class');
                 $('form :input').val('');
                 $('form').attr('method', 'POST');
-                $('form').attr('action', 'api/courses');
-                $('#txtCourseID').removeAttr('disabled');
+                $('form').attr('action', 'api/classes');
+                $('#txtClassID').removeAttr('disabled');
             });
 
             $("form").on("submit", function (ev) {
                 ev.preventDefault();
 
                 if ($('#lblAction').text().indexOf('Add') >= 0) {
-                    $.post("api/courses/", $(this).serialize(), function (data, status) {
+                    $.post("api/classes/", $(this).serialize(), function (data, status) {
                         alert("Data: " + data + "\nStatus: " + status);
-                            getAllCourses();
+                            getAllClasses();
                     }).fail(function () {
                         alert("post fail");
                     });
@@ -128,16 +139,20 @@
                     });*/
                 }
                 else {
-                    $.ajax('api/courses/CSD207', {
-                        type: 'PUT',  
-                        data: $(this).serialize(),  
+                    $.ajax({
+                        url: 'https://localhost:44335/api/courses/' + $('#txtCourseID').val(),
+                        type: 'PUT',
+                        dataType: 'json',
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        data: $(this).serialize(),
                         success: function (data, status) {
                             alert("Data: " + data + "\nStatus: " + status);
                             console.log(status == 'success');
                             getAllCourses();
                         },
                         error: function (jqXhr, textStatus, errorMessage) { // error callback 
-                            alert('Error PUT: ' + textStatus);
+                            alert('Error PUT: ' + errorMessage);
                             console.log($(this).serialize());
                         }
                     });
@@ -151,8 +166,8 @@
     <div class="page-header">
     <h1>Class Manager</h1>
 </div>
-<li id="courseItem" style="display: none;">
-<strong id="courseInfo"></strong>
+<li id="classItem" style="display: none;">
+<strong id="classInfo"></strong>
 <small><a href="#" id="detailLink">Details</a></small>
 <small><a href="#" id="editLink">Edit</a></small>
 <small><a href="#" id="deactivateLink">Deactivate</a></small>
@@ -166,7 +181,7 @@
                 <h2 class="panel-title"></h2>
             </div>
             <div class="panel-body">
-                <ul class="list-unstyled" id="listCourse">
+                <ul class="list-unstyled" id="listClass">
 
                 </ul>
                 <a style="float:right;" id="btnAdd">Add</a>
@@ -181,7 +196,7 @@
             </div>
             <table class="table">
                 <tr><td>Class ID</td><td id="classID"></td></tr>
-                <tr><td>Duration</td><td id="Duration"></td></tr>
+                <tr><td>Duration</td><td id="duration"></td></tr>
                 <tr><td>Start Date</td><td id="startDate"></td></tr>
                 <tr><td>End Date</td><td id="endDate"></td></tr>
                 <tr><td>Course Name</td><td id="courseName"></td></tr>
@@ -214,16 +229,16 @@
 
                         <label style="text-align:start;"  class="col-sm-4 control-label">Start Date</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="txtStartDate" required name="StartDate"/>
+                            <input type="datetime-local" class="form-control" id="txtStartDate" required name="StartDate"/>
                         </div>
 
                         <label style="text-align:start;" class="col-sm-4 control-label">End Date</label>
                         <div class="col-sm-8">
-                            <input type="date"  class="form-control" id="txtEndDate"  required name="EndDate"/>
+                            <input type="datetime-local"  class="form-control" id="txtEndDate"  required name="EndDate"/>
                         </div>
                          <label style="text-align:start;"  class="col-sm-4 control-label">Course Name</label>
                         <div class="col-sm-8">
-                            <input type="text"  class="form-control" id="txtCourseName"  required name="CourseName"/>
+                            <select class="form-control" id="lstCourse"  required name="CourseId"></select>
                         </div>
                          <label style="text-align:start;"  class="col-sm-4 control-label">Teacher</label>
                         <div class="col-sm-8">
