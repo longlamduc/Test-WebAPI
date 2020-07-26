@@ -9,7 +9,7 @@
                 $.each(data, function (key, value) {
                     var item = $('#classItem').clone();
                     item.show();
-                    console.log(value);
+                    /*console.log(value);*/
                     item.find("#classInfo").text(value.Id + " - " + value.CourseId);
                     item.find("#detailLink").on('click', function () {
                         showClassDetail(value);
@@ -19,6 +19,7 @@
                         showClassDetail(value);
                         $('#lblAction').text('Edit class');
                         $('#txtClassID').attr('disabled', 'disabled');
+                        $('#txtClassID').val(value.Id);
                         $('#txtDuration').val(value.Duration);
                         $('#txtStartDate').val(value.StartDate);
                         $('#txtEndDate').val(value.EndDate);
@@ -42,6 +43,16 @@
                 });
             });
         }
+        function getAllAccount() {
+            $.getJSON("api/accounts", function (data) {
+                $.each(data, function (key, value) {
+                    var item = $('#optionItem').clone();
+                    item.val(value.Id);
+                    item.text(value.FullName);
+                    $('#lstStatus').append(item);
+                });
+            });
+        }
         function getAllCourses() {
             $.getJSON("api/courses", function (data) {
                 $.each(data, function (key, value) {
@@ -60,7 +71,7 @@
             $('#startDate').text(item.StartDate);
             $('#endDate').text(item.EndDate);
             $('#courseName').text(item.CourseId);
-            $('#fullName').text(item.Account.AccountId);
+            $('#fullName').text(item.Account.FullName);
             $('#status').text(item.Status.StatusName);
         }
 
@@ -104,6 +115,7 @@
             getAllClasses();
             getAllStatus();
             getAllCourses();
+            getAllAccount();
             $('form').attr('method', 'POST');
             $('form').attr('action', 'api/classes');
 
@@ -140,7 +152,7 @@
                 }
                 else {
                     $.ajax({
-                        url: 'https://localhost:44335/api/courses/' + $('#txtCourseID').val(),
+                        url: 'https://localhost:44335/api/classes/' + $('#txtClassID').val(),
                         type: 'PUT',
                         dataType: 'json',
                         contentType: "application/json; charset=utf-8",
@@ -149,7 +161,7 @@
                         success: function (data, status) {
                             alert("Data: " + data + "\nStatus: " + status);
                             console.log(status == 'success');
-                            getAllCourses();
+                            getAllClasses();
                         },
                         error: function (jqXhr, textStatus, errorMessage) { // error callback 
                             alert('Error PUT: ' + errorMessage);
@@ -242,7 +254,7 @@
                         </div>
                          <label style="text-align:start;"  class="col-sm-4 control-label">Teacher</label>
                         <div class="col-sm-8">
-                            <input type="text"  class="form-control" id="txtTeacherName"  required name="FullName"/>
+                            <input type="text"  class="form-control" id="txtFullName"  required name="FullName"/>
                         </div>
                         <label style="text-align:start;"  class="col-sm-4 control-label">Status</label>
                         <div class="col-sm-8">

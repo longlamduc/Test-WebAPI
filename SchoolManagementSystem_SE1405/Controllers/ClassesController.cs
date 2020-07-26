@@ -21,7 +21,8 @@ namespace SchoolManagementSystem_SE1405.Controllers
         // GET: api/Classes
         public IQueryable<Class> GetClasses()
         {
-            return db.Classes.Include(b => b.ClassDetails);
+            return db.Classes.Include(b => b.ClassDetails).Include(c => c.Status)
+                .Include(a => a.Account);
         }
 
         [Route("api/courses/{courseId}/classes")]
