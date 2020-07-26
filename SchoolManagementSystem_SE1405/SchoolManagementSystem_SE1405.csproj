@@ -133,6 +133,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="ClassManagerPage.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="UserManagerPage.aspx" />
     <Content Include="CSS\Style.css" />
     <Content Include="Default.aspx" />
@@ -224,6 +225,12 @@
     </Compile>
     <Compile Include="ClassManagerPage.aspx.designer.cs">
       <DependentUpon>ClassManagerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserManagerPage.aspx.cs">
       <DependentUpon>UserManagerPage.aspx</DependentUpon>
