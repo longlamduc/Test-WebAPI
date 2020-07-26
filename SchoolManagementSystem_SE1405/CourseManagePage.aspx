@@ -128,16 +128,29 @@
                     });*/
                 }
                 else {
-                    $.ajax('api/courses/CSD207', {
+                    console.log('https://localhost:44335/api/courses/' + $('#txtCourseID').val());
+                    $.ajax({
+                        url: 'https://localhost:44335/api/courses/' + $('#txtCourseID').val(),
                         type: 'PUT',  
-                        data: $(this).serialize(),  
+                        dataType: 'json',
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        data: JSON.stringify({
+                            "Id": $('#txtCourseID').val(),
+                            "CourseName": $('#txtCourseName').val(),
+                            "Description": $('#txtDescription').val(),
+                            "Semester": $('#txtSemester').val(),
+                            "TotalLesson": $('#txtTotalLesson').val(),
+                            "TotalCredit": $('#txtTotalCredit').val(),
+                            "StatusId": $('#lstStatus').val(),
+                        }),  
                         success: function (data, status) {
                             alert("Data: " + data + "\nStatus: " + status);
                             console.log(status == 'success');
                             getAllCourses();
                         },
                         error: function (jqXhr, textStatus, errorMessage) { // error callback 
-                            alert('Error PUT: ' + textStatus);
+                            alert('Error PUT: ' + errorMessage);
                             console.log($(this).serialize());
                         }
                     });

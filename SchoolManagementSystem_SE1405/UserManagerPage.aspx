@@ -4,18 +4,18 @@
     <script src="Scripts/jquery-3.4.1.js"></script>
     <script type="text/javascript">
         function getAllCourses() {
-            $.getJSON("api/courses", function (data) {
-                $('#listCourse').empty();
+            $.getJSON("api/accounts", function (data) {
+                $('#listAccount').empty();
                 $.each(data, function (key, value) {
-                    var item = $('#courseItem').clone();
+                    var item = $('#accountItem').clone();
                     item.show();
-
-                    item.find("#courseInfo").text(value.Id + " - " + value.CourseName);
+                    console.log(value);
+                    item.find("#accountInfo").text(value.Id + " - " + value.FullName);
                     item.find("#detailLink").on('click', function () {
-                        showCourseDetail(value);
+                        showAccountDetail(value);
                     });
 
-                    item.find('#editLink').on('click', function () {
+                    /*item.find('#editLink').on('click', function () {
                         showCourseDetail(value);
                         $('#lblAction').text('Edit course');
                         $('#txtCourseID').attr('disabled', 'disabled');
@@ -26,9 +26,9 @@
                         $('#txtTotalLesson').val(value.TotalLesson);
                         $('#txtTotalCredit').val(value.TotalCredit);
                         $('#lstStatus').val(value.StatusId);
-                    });
+                    });*/
 
-                    $('#listCourse').append(item);
+                    $('#listAccount').append(item);
                 });
             })
         }
@@ -44,14 +44,16 @@
             });
         }
 
-        function showCourseDetail(course) {
-            $('#courseID').text(course.Id);
-            $('#courseName').text(course.CourseName);
-            $('#description').text(course.Description);
-            $('#totalLesson').text(course.TotalLesson);
-            $('#semester').text(course.Semester);
-            $('#totalCredit').text(course.TotalCredit);
-            $('#status').text(course.Status.StatusName);
+        function showAccountDetail(item) {
+            $('#accountID').text(item.Id);
+            $('#fullName').text(item.FullName);
+            $('#password').text(item.Password);
+            $('#status').text(item.Status.StatusName);
+            $('#role').text(item.Role.RoleName);
+            $('#email').text(item.AccountInfo.Email);
+            $('#birthday').text(item.AccountInfo.Birthday);
+            $('#phone').text(item.AccountInfo.Phone);
+            $('#gender').text(item.AccountInfo.Gender);
         }
 
         function validateForm() {
@@ -151,8 +153,8 @@
     <div class="page-header">
     <h1>User Manager</h1>
 </div>
-<li id="courseItem" style="display: none;">
-<strong id="courseInfo"></strong>
+<li id="accountItem" style="display: none;">
+<strong id="accountInfo"></strong>
 <small><a href="#" id="detailLink">Details</a></small>
 <small><a href="#" id="editLink">Edit</a></small>
 <small><a href="#" id="deactivateLink">Deactivate</a></small>
@@ -166,7 +168,7 @@
                 <h2 class="panel-title"></h2>
             </div>
             <div class="panel-body">
-                <ul class="list-unstyled" id="listCourse">
+                <ul class="list-unstyled" id="listAccount">
 
                 </ul>
                 <a style="float:right;" id="btnAdd">Add</a>
