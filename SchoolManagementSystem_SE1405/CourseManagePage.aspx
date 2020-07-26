@@ -194,7 +194,7 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <label style="text-align:start;" for="inputTitle" class="col-sm-4 control-label" id="lblAction">Add Course</label>
+                <label style="text-align:start;" for="inputTitle" id="lblAction">Add Course</label>
             </div>
 
             <div class="panel-body">

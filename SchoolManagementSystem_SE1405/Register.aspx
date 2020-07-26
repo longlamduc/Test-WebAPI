@@ -63,7 +63,7 @@
     <asp:Button ID="btnSave" runat="server" Height="35px" Text="Register" Font-Bold="True" Font-Names="BIZ UDPGothic" BorderStyle="Ridge" Width="330px" Font-Size="Larger" />
 		</p>
 		<p style="margin-left:95px;">
-    <asp:Button ID="btnLogin" runat="server" Height="35px" Text="Login" Font-Bold="True" Font-Names="BIZ UDPGothic" BorderStyle="Ridge" Width="330px" Font-Size="Larger"/>
+    <asp:Button ID="btnLogin" runat="server" Height="35px" Text="Login" Font-Bold="True" Font-Names="BIZ UDPGothic" BorderStyle="Ridge" Width="330px" Font-Size="Larger"  />
 		</p>
 		 </form>
 </body>

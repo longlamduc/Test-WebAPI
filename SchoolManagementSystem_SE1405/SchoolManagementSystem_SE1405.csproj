@@ -132,6 +132,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ClassManagerPage.aspx" />
+    <Content Include="UserManagerPage.aspx" />
     <Content Include="CSS\Style.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -216,6 +218,20 @@
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TeachingsController.cs" />
+    <Compile Include="ClassManagerPage.aspx.cs">
+      <DependentUpon>ClassManagerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClassManagerPage.aspx.designer.cs">
+      <DependentUpon>ClassManagerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagerPage.aspx.cs">
+      <DependentUpon>UserManagerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagerPage.aspx.designer.cs">
+      <DependentUpon>UserManagerPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Data\SchoolManagementSystem_SE1405Context.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

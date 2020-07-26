@@ -13,5 +13,11 @@ namespace SchoolManagementSystem_SE1405
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
+
     }
 }
