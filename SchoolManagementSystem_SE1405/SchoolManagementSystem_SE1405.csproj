@@ -150,7 +150,7 @@
     <Content Include="Img\fc047347b17f7df7ff288d78c8c281cf.png" />
     <Content Include="Img\registercourse.png" />
     <Content Include="Img\viewgrade.png" />
-    <Content Include="Manager.aspx" />
+    <Content Include="CourseManagePage.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -226,12 +226,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Manager.aspx.cs">
-      <DependentUpon>Manager.aspx</DependentUpon>
+    <Compile Include="CourseManagePage.aspx.cs">
+      <DependentUpon>CourseManagePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Manager.aspx.designer.cs">
-      <DependentUpon>Manager.aspx</DependentUpon>
+    <Compile Include="CourseManagePage.aspx.designer.cs">
+      <DependentUpon>CourseManagePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202007210409516_initial.cs" />
     <Compile Include="Migrations\202007210409516_initial.Designer.cs">
