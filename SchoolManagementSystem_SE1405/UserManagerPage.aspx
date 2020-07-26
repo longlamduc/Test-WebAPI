@@ -149,7 +149,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-header">
-    <h1>Course Manager</h1>
+    <h1>User Manager</h1>
 </div>
 <li id="courseItem" style="display: none;">
 <strong id="courseInfo"></strong>
@@ -180,13 +180,15 @@
                 <h2 class="panel-title">Detail</h2>
             </div>
             <table class="table">
-                <tr><td>Course ID</td><td id="courseID"></td></tr>
-                <tr><td>Course Name</td><td id="courseName"></td></tr>
-                <tr><td>Description</td><td id="description"></td></tr>
-                <tr><td>Semester</td><td id="semester"></td></tr>
-                <tr><td>Total Lesson</td><td id="totalLesson"></td></tr>
-                <tr><td>Total Credit</td><td id="totalCredit"></td></tr>
+                <tr><td>Account ID</td><td id="accountID"></td></tr>
+                <tr><td>Full Name</td><td id="fullName"></td></tr>
+                <tr><td>Password</td><td id="password"></td></tr>
                 <tr><td>Status</td><td id="status"></td></tr>
+                <tr><td>Role</td><td id="role"></td></tr>
+                <tr><td>Email</td><td id="email"></td></tr>
+                <tr><td>Birthday</td><td id="birthday"></td></tr>
+                <tr><td>Phone</td><td id="phone"></td></tr>
+                <tr><td>Gender</td><td id="gender"></td></tr>
             </table>
         </div>
     </div>
@@ -194,45 +196,53 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <label style="text-align:start;" for="inputTitle" id="lblAction">Add Course</label>
+                <label style="text-align:start;" for="inputTitle" id="lblAction">Add User</label>
             </div>
 
             <div class="panel-body">
-                <aside class="form-horizontal" data-bind="submit: addBook">
+                <aside class="form-horizontal">
                     
 
-                    <div class="form-group" data-bind="with: newBook">
-                        <label style="text-align:start;" for="inputTitle" class="col-sm-4 control-label">Course Id</label>
+                    <div class="form-group">
+                        <label style="text-align:start;" class="col-sm-4 control-label">Account ID</label>
                         <div class="col-sm-8">
-                            <input  type="text" class="form-control warning" id="txtCourseID" required maxlength="6" name="Id"/>
+                            <input  type="text" class="form-control warning" id="txtAccountID" required maxlength="6" name="Id"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputYear" class="col-sm-4 control-label">Course Name</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Full Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="txtCourseName" required name="CourseName"/>
+                            <input type="text" class="form-control" id="txtFullName" required name="FullName"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputGenre" class="col-sm-4 control-label">Description</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Password</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="txtDescription" required name="Description"/>
+                            <input type="text" class="form-control" id="txtPassword" required name="Password"/>
                         </div>
-
-                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Semester</label>
-                        <div class="col-sm-8">
-                            <input type="number" step="any" class="form-control" id="txtSemester" min="1" max="9" required name="Semester"/>
-                        </div>
-                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Lesson</label>
-                        <div class="col-sm-8">
-                            <input type="number" step="any" class="form-control" id="txtTotalLesson" max="30" required name="TotalLesson"/>
-                        </div>
-                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Credit</label>
-                        <div class="col-sm-8">
-                            <input type="number" step="any" class="form-control" id="txtTotalCredit" max="5" required name="TotalCredit"/>
-                        </div>
-                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Status</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Status</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="lstStatus" required name="StatusId"></select>
                         </div>
+                        <label style="text-align:start;" class="col-sm-4 control-label">Role</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="lstRole" required name="RoleId"></select>
+                        </div>
+                         <label style="text-align:start;"  class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email"  class="form-control" id="txtEmail" required name="Email"/>
+                        </div>
+                         <label style="text-align:start;" class="col-sm-4 control-label">Birthday</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="txtBirthday"  required name="Birthday"/>
+                        </div>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Phone</label>
+                        <div class="col-sm-8">
+                            <input type="tel" class="form-control" id="txtPhone" required name="Phone"/>
+                        </div>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Gender</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="lstGender" required name="Gender"></select>
+                        </div>
+                        
                     </div>
                     <button type="submit" id="button" onclick="validateForm()" style="float: right">Save</button>
                 </aside>
