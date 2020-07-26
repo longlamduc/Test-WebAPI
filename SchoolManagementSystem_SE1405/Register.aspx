@@ -10,7 +10,7 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('#btnLogin').on('click', function () {
-                window.location.replace("https://localhost:44335/Login");
+                window.location.replace("https://localhost:44335/LoginPage");
 			})
 
 			$("form").on("submit", function (ev) {
