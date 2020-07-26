@@ -198,38 +198,38 @@
             </div>
 
             <div class="panel-body">
-                <aside class="form-horizontal" data-bind="submit: addBook">
+                <aside class="form-horizontal" >
                     
 
-                    <div class="form-group" data-bind="with: newBook">
-                        <label style="text-align:start;" for="inputTitle" class="col-sm-4 control-label">Course Id</label>
+                    <div class="form-group" >
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Course Id</label>
                         <div class="col-sm-8">
                             <input  type="text" class="form-control warning" id="txtCourseID" required maxlength="6" name="Id"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputYear" class="col-sm-4 control-label">Course Name</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Course Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="txtCourseName" required name="CourseName"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputGenre" class="col-sm-4 control-label">Description</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Description</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="txtDescription" required name="Description"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Semester</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Semester</label>
                         <div class="col-sm-8">
                             <input type="number" step="any" class="form-control" id="txtSemester" min="1" max="9" required name="Semester"/>
                         </div>
-                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Lesson</label>
+                         <label style="text-align:start;"  class="col-sm-4 control-label">Total Lesson</label>
                         <div class="col-sm-8">
                             <input type="number" step="any" class="form-control" id="txtTotalLesson" max="30" required name="TotalLesson"/>
                         </div>
-                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Credit</label>
+                         <label style="text-align:start;"  class="col-sm-4 control-label">Total Credit</label>
                         <div class="col-sm-8">
                             <input type="number" step="any" class="form-control" id="txtTotalCredit" max="5" required name="TotalCredit"/>
                         </div>
-                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Status</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Status</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="lstStatus" required name="StatusId"></select>
                         </div>
@@ -239,8 +239,6 @@
             </div>
         </div>
     </div>
-    <asp:GridView ID="gvCourses" runat="server">
-    </asp:GridView>
 </div>
     
 </asp:Content>

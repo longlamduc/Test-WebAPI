@@ -41,7 +41,7 @@ namespace SchoolManagementSystem_SE1405
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Write("<script>alert('Your text');</script>");
+            Response.Write("<script>alert('Page Load');</script>");
         }
 
         protected override void OnLoadComplete(EventArgs e)

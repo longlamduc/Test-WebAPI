@@ -180,12 +180,12 @@
                 <h2 class="panel-title">Detail</h2>
             </div>
             <table class="table">
-                <tr><td>Course ID</td><td id="courseID"></td></tr>
+                <tr><td>Class ID</td><td id="classID"></td></tr>
+                <tr><td>Duration</td><td id="Duration"></td></tr>
+                <tr><td>Start Date</td><td id="startDate"></td></tr>
+                <tr><td>End Date</td><td id="endDate"></td></tr>
                 <tr><td>Course Name</td><td id="courseName"></td></tr>
-                <tr><td>Description</td><td id="description"></td></tr>
-                <tr><td>Semester</td><td id="semester"></td></tr>
-                <tr><td>Total Lesson</td><td id="totalLesson"></td></tr>
-                <tr><td>Total Credit</td><td id="totalCredit"></td></tr>
+                <tr><td>Teacher</td><td id="fullName"></td></tr>
                 <tr><td>Status</td><td id="status"></td></tr>
             </table>
         </div>
@@ -194,42 +194,42 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <label style="text-align:start;" for="inputTitle" id="lblAction">Add Class</label>
+                <label style="text-align:start;" id="lblAction">Add Class</label>
             </div>
 
             <div class="panel-body">
-                <aside class="form-horizontal" data-bind="submit: addBook">
+                <aside class="form-horizontal">
                     
 
-                    <div class="form-group" data-bind="with: newBook">
-                        <label style="text-align:start;" for="inputTitle" class="col-sm-4 control-label">Class Id</label>
+                    <div class="form-group">
+                        <label style="text-align:start;" class="col-sm-4 control-label">Class Id</label>
                         <div class="col-sm-8">
-                            <input  type="text" class="form-control warning" id="txtCourseID" required maxlength="6" name="Id"/>
+                            <input  type="text" class="form-control warning" id="txtClassID" required maxlength="6" name="Id"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputYear" class="col-sm-4 control-label">Duration</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Duration</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="txtCourseName" required name="CourseName"/>
+                            <input type="text" class="form-control" id="txtDuration" required name="Duration"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputGenre" class="col-sm-4 control-label">Description</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Start Date</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="txtDescription" required name="Description"/>
+                            <input type="date" class="form-control" id="txtStartDate" required name="StartDate"/>
                         </div>
 
-                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Semester</label>
+                        <label style="text-align:start;" class="col-sm-4 control-label">End Date</label>
                         <div class="col-sm-8">
-                            <input type="number" step="any" class="form-control" id="txtSemester" min="1" max="9" required name="Semester"/>
+                            <input type="date"  class="form-control" id="txtEndDate"  required name="EndDate"/>
                         </div>
-                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Lesson</label>
+                         <label style="text-align:start;"  class="col-sm-4 control-label">Course Name</label>
                         <div class="col-sm-8">
-                            <input type="number" step="any" class="form-control" id="txtTotalLesson" max="30" required name="TotalLesson"/>
+                            <input type="text"  class="form-control" id="txtCourseName"  required name="CourseName"/>
                         </div>
-                         <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Total Credit</label>
+                         <label style="text-align:start;"  class="col-sm-4 control-label">Teacher</label>
                         <div class="col-sm-8">
-                            <input type="number" step="any" class="form-control" id="txtTotalCredit" max="5" required name="TotalCredit"/>
+                            <input type="text"  class="form-control" id="txtTeacherName"  required name="FullName"/>
                         </div>
-                        <label style="text-align:start;" for="inputPrice" class="col-sm-4 control-label">Status</label>
+                        <label style="text-align:start;"  class="col-sm-4 control-label">Status</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="lstStatus" required name="StatusId"></select>
                         </div>
@@ -239,8 +239,6 @@
             </div>
         </div>
     </div>
-    <asp:GridView ID="gvCourses" runat="server">
-    </asp:GridView>
 </div>
     
 </asp:Content>
