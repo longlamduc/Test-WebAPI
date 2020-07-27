@@ -16,7 +16,7 @@ namespace SchoolManagementSystem_SE1405
 {
     public partial class Default : Page
     {
-        async void GetAccountDetail()
+        /*async void GetAccountDetail()
         {
             HttpClient client = Util.client;
             //client.BaseAddress = new Uri(Util.baseAddress + "login");
@@ -33,23 +33,23 @@ namespace SchoolManagementSystem_SE1405
 
             var responseBody = await response.Content.ReadAsAsync<Account>().ConfigureAwait(false);
 
-            /*Console.WriteLine(responseBody);*/
+            *//*Console.WriteLine(responseBody);*//*
             Response.Write("<script>alert('" + responseBody.FullName + "');</script>");
 
 
 
-        }
+        }*/
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Page Load');</script>");
+           /* Response.Write("<script>alert('Page Load');</script>");*/
         }
 
-        protected override void OnLoadComplete(EventArgs e)
+       /* protected override void OnLoadComplete(EventArgs e)
         {
             base.OnLoadComplete(e);
             Response.Write("<script>alert('Your text');</script>");
             GetAccountDetail();
             Response.Write("<script>alert('Your text');</script>");
-        }
+        }*/
     }
 }

@@ -49,7 +49,7 @@
                     var item = $('#optionItem').clone();
                     item.val(value.Id);
                     item.text(value.FullName);
-                    $('#lstStatus').append(item);
+                    $('#lstAccount').append(item);
                 });
             });
         }
@@ -151,14 +151,16 @@
                     });*/
                 }
                 else {
+                    console.log('https://localhost:44335/api/classes/' + $('#txtClassID').val());
+                    console.log(JSON.stringify({ "Id": $('#txtClassID').val(), "Duration": $('#txtDuration').val(), "StartDate": $('#txtStartDate').val(), "EndDate": $('#txtEndDate').val(), "CourseId": $('#lstCourse').val(), "AccountId": $('#lstAccount').val(), "StatusId": $('#lstStatus').val(), }));
                     $.ajax({
                         url: 'https://localhost:44335/api/classes/' + $('#txtClassID').val(),
                         type: 'PUT',
                         dataType: 'json',
                         contentType: "application/json; charset=utf-8",
                         async: false,
-                        data: $(this).serialize(),
-                        success: function (data, status) {
+                        data: JSON.stringify({ "Id": $('#txtClassID').val(), "Duration": $('#txtDuration').val(), "StartDate": $('#txtStartDate').val(), "EndDate": $('#txtEndDate').val(), "CourseId": $('#lstCourse').val(), "AccountId": $('#lstAccount').val(), "StatusId": $('#lstStatus').val(), }),
+                        success: function (data, status) {                           
                             alert("Data: " + data + "\nStatus: " + status);
                             console.log(status == 'success');
                             getAllClasses();
@@ -254,7 +256,7 @@
                         </div>
                          <label style="text-align:start;"  class="col-sm-4 control-label">Teacher</label>
                         <div class="col-sm-8">
-                            <input type="text"  class="form-control" id="txtFullName"  required name="FullName"/>
+                            <select class="form-control" id="lstAccount" required name="FullName"></select>
                         </div>
                         <label style="text-align:start;"  class="col-sm-4 control-label">Status</label>
                         <div class="col-sm-8">
