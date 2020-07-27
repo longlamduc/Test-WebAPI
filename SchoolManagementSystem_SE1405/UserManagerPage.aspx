@@ -3,32 +3,35 @@
 <asp:Content ID="PageHeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <script src="Scripts/jquery-3.4.1.js"></script>
     <script type="text/javascript">
-        function getAllCourses() {
-            $.getJSON("api/courses", function (data) {
-                $('#listCourse').empty();
+        function getAllAccounts() {
+            $.getJSON("api/accounts", function (data) {
+                $('#listAccount').empty();
                 $.each(data, function (key, value) {
-                    var item = $('#courseItem').clone();
+                    var item = $('#accountItem').clone();
                     item.show();
-
-                    item.find("#courseInfo").text(value.Id + " - " + value.CourseName);
+                    console.log(value);
+                    item.find("#accountInfo").text(value.Id + " - " + value.FullName);
                     item.find("#detailLink").on('click', function () {
-                        showCourseDetail(value);
+                        showAccountDetail(value);
                     });
 
                     item.find('#editLink').on('click', function () {
-                        showCourseDetail(value);
-                        $('#lblAction').text('Edit course');
-                        $('#txtCourseID').attr('disabled', 'disabled');
-                        $('#txtCourseID').val(value.Id);
-                        $('#txtCourseName').val(value.CourseName);
-                        $('#txtDescription').val(value.Description);
-                        $('#txtSemester').val(value.Semester);
-                        $('#txtTotalLesson').val(value.TotalLesson);
-                        $('#txtTotalCredit').val(value.TotalCredit);
+                        showAccountDetail(value);
+                        console.log(value);
+                        $('#lblAction').text('Edit account');
+                        $('#txtAccountID').attr('disabled', 'disabled');
+                        $('#txtAccountID').val(value.Id);
+                        $('#txtFullName').val(value.FullName);
+                        $('#txtPassword').val(value.Password);
                         $('#lstStatus').val(value.StatusId);
+                        $('#lstRole').val(value.RoleId);
+                        $('#txtEmail').val(value.AccountInfo.Email);
+                        $('#txtBirthday').val(new Date(value.AccountInfo.Birthday).toISOString().substring(0, 10));
+                        $('#txtPhone').val(value.AccountInfo.Phone);
+                        $('#lstGender').val(value.AccountInfo.Gender);
                     });
 
-                    $('#listCourse').append(item);
+                    $('#listAccount').append(item);
                 });
             })
         }
@@ -44,17 +47,31 @@
             });
         }
 
-        function showCourseDetail(course) {
-            $('#courseID').text(course.Id);
-            $('#courseName').text(course.CourseName);
-            $('#description').text(course.Description);
-            $('#totalLesson').text(course.TotalLesson);
-            $('#semester').text(course.Semester);
-            $('#totalCredit').text(course.TotalCredit);
-            $('#status').text(course.Status.StatusName);
+        function getAllRole() {
+            $.getJSON("api/roles", function (data) {
+                $.each(data, function (key, value) {
+                    var item = $('#optionItem').clone();
+                    item.val(value.Id);
+                    item.text(value.RoleName);
+                    $('#lstRole').append(item);
+                });
+            });
+        }
+        
+
+        function showAccountDetail(item) {
+            $('#accountID').text(item.Id);
+            $('#fullName').text(item.FullName);
+            $('#password').text(item.Password);
+            $('#status').text(item.Status.StatusName);
+            $('#role').text(item.Role.RoleName);
+            $('#email').text(item.AccountInfo.Email);
+            $('#birthday').text(item.AccountInfo.Birthday);
+            $('#phone').text(item.AccountInfo.Phone);
+            $('#gender').text(item.AccountInfo.Gender);
         }
 
-        function validateForm() {
+        /*function validateForm() {
             let validateResult = true;
             if ($('#txtCourseID').val().length === 0) {
                 $('#txtCourseID').parent().addClass('has-warning');
@@ -83,16 +100,17 @@
             else {
                 $('#txtDescription').parent().removeClass('has-warning');
             }
-            /*if (validateResult == true) {
+            *//*if (validateResult == true) {
                 alert('submit');
                 $('form').submit();
                 
-            }*/
-        }
+            }*//*
+        }*/
 
         $(document).ready(function () {
-            getAllCourses();
+            getAllAccounts();
             getAllStatus();
+            getAllRole();
             $('form').attr('method', 'POST');
             $('form').attr('action', 'api/courses');
 
@@ -104,13 +122,31 @@
                 $('#txtCourseID').removeAttr('disabled');
             });
 
+
             $("form").on("submit", function (ev) {
                 ev.preventDefault();
 
                 if ($('#lblAction').text().indexOf('Add') >= 0) {
-                    $.post("api/courses/", $(this).serialize(), function (data, status) {
+                    var data = {
+                        "Id": $('#txtAccountID').val(),
+                        "FullName": $('#txtFullName').val(),
+                        "Password": $('#txtPassword').val(),
+                        "StatusId": $('#lstStatus').val(),
+                        "RoleId": $('#lstRole').val(),
+                        "AccountInfoId": $('#txtAccountID').val(),
+                        "AccountInfo": {
+                            "Id": $('#txtAccountID').val(),
+                            "Email": $('#txtEmail').val(),
+                                "Birthday": $('#txtBirthday').val(),
+                            "Gender": $('#lstGender').val(),
+                            "Phone": $('#txtPhone').val()
+        }
+                
+                    };
+                    console.log(data);
+                    $.post("api/accounts/", data, function (data, status) {
                         alert("Data: " + data + "\nStatus: " + status);
-                            getAllCourses();
+                        getAllAccounts();
                     }).fail(function () {
                         alert("post fail");
                     });
@@ -128,17 +164,35 @@
                     });*/
                 }
                 else {
-                    $.ajax('api/courses/CSD207', {
-                        type: 'PUT',  
-                        data: $(this).serialize(),  
+                    $.ajax({
+                        url: 'https://localhost:44335/api/accounts/' + $('#txtAccountID').val(),
+                        type: 'PUT',
+                        dataType: 'json',
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        data: JSON.stringify({
+                            "Id": $('#txtAccountID').val(),
+                            "FullName": $('#txtFullName').val(),
+                            "Password": $('#txtPassword').val(),
+                            "StatusId": $('#lstStatus').val(),
+                            "RoleId": $('#lstRole').val(),
+                            "AccountInfoId": $('#txtAccountID').val(),
+                            "AccountInfo": {
+                                "Id": $('#txtAccountID').val(),
+                                "Email": $('#txtEmail').val(),
+                                "Birthday": $('#txtBirthday').val(),
+                                "Gender": $('#lstGender').val(),
+                                "Phone": $('#txtPhone').val()
+                            }
+
+                        }),
                         success: function (data, status) {
                             alert("Data: " + data + "\nStatus: " + status);
                             console.log(status == 'success');
-                            getAllCourses();
+                            getAllAccounts();
                         },
                         error: function (jqXhr, textStatus, errorMessage) { // error callback 
-                            alert('Error PUT: ' + textStatus);
-                            console.log($(this).serialize());
+                            alert('Error PUT: ' + errorMessage);
                         }
                     });
                 }
@@ -151,8 +205,8 @@
     <div class="page-header">
     <h1>User Manager</h1>
 </div>
-<li id="courseItem" style="display: none;">
-<strong id="courseInfo"></strong>
+<li id="accountItem" style="display: none;">
+<strong id="accountInfo"></strong>
 <small><a href="#" id="detailLink">Details</a></small>
 <small><a href="#" id="editLink">Edit</a></small>
 <small><a href="#" id="deactivateLink">Deactivate</a></small>
@@ -166,7 +220,7 @@
                 <h2 class="panel-title"></h2>
             </div>
             <div class="panel-body">
-                <ul class="list-unstyled" id="listCourse">
+                <ul class="list-unstyled" id="listAccount">
 
                 </ul>
                 <a style="float:right;" id="btnAdd">Add</a>
@@ -206,7 +260,7 @@
                     <div class="form-group">
                         <label style="text-align:start;" class="col-sm-4 control-label">Account ID</label>
                         <div class="col-sm-8">
-                            <input  type="text" class="form-control warning" id="txtAccountID" required maxlength="6" name="Id"/>
+                            <input  type="text" class="form-control warning" id="txtAccountID" required name="Id"/>
                         </div>
 
                         <label style="text-align:start;"  class="col-sm-4 control-label">Full Name</label>
@@ -240,11 +294,15 @@
                         </div>
                         <label style="text-align:start;"  class="col-sm-4 control-label">Gender</label>
                         <div class="col-sm-8">
-                            <select class="form-control" id="lstGender" required name="Gender"></select>
+                            <select class="form-control" id="lstGender" required name="Gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
                         
                     </div>
-                    <button type="submit" id="button" onclick="validateForm()" style="float: right">Save</button>
+                    <button type="submit" id="button" style="float: right">Save</button>
                 </aside>
             </div>
         </div>
