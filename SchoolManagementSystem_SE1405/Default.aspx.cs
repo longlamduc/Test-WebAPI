@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +9,7 @@ namespace SchoolManagementSystem_SE1405
 {
     public partial class _Default : Page
     {
+        // asfajsdhadaskdakdh
         protected void Page_Load(object sender, EventArgs e)
         {
 
